@@ -7,7 +7,7 @@ const stamper = require('./src/middlewares/stamper.js');
 const errorHandler = require('./src/errorHandlers/500.js');
 const notFoundHandler = require('./src/errorHandlers/404.js');
 
-app.get('/', (req, res) => {
+app.get('/', async (req, res) => {
     res.send('Hello from home page route')
 })
 app.get ('/about',stamper, (req, res) => {
@@ -18,7 +18,7 @@ app.get ('/about',stamper, (req, res) => {
         "time": req.stamper
     })
 })
-app.get ('/bad', (req, res) => {
+app.get ('/bad', async (req, res) => {
     let num = 10;
     let result = num.forEach((x) => {
         console.log(x);
